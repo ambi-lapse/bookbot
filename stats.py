@@ -1,9 +1,4 @@
 
-def open_book(book_path):
-    book = ""
-    with open(book_path) as b:
-        book = b.read()
-    return book
 
 def get_num_words(book):
     words = []
@@ -12,7 +7,7 @@ def get_num_words(book):
     words = book.split()
     for word in words:
         num_words += 1
-    return  f"{num_words} words found in the document"
+    return num_words
 
 
 def char_dict(book):
@@ -26,3 +21,22 @@ def char_dict(book):
             char_dict[lower] = 1
     
     return char_dict
+
+
+
+
+
+def sort_data(data):
+    def sort_on(items):
+        return items["num"]
+    
+    sorted_list = []
+    
+    for d in data:
+        char_dict = {"char": d, "num": data[d]}
+        sorted_list.append(char_dict)
+        
+    sorted_list.sort(key=sort_on, reverse=True)
+
+    return sorted_list
+        
